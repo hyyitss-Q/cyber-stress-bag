@@ -1,0 +1,15 @@
+# 千万别提交 key
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Gradio
+.gradio/
+flagged/
+
+# 运行时对话历史（用户数据，不入库）
+history.json
