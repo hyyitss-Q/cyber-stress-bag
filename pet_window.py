@@ -11,7 +11,7 @@
 import random
 
 from PySide6.QtCore import Qt, QTimer, Signal, QRect, QPoint
-from PySide6.QtGui import QPainter, QColor, QFont, QFontMetrics
+from PySide6.QtGui import QPainter, QColor, QFont, QFontMetrics, QPolygon
 from PySide6.QtWidgets import QWidget
 
 import config
@@ -130,11 +130,13 @@ class PetWindow(QWidget):
         painter.setPen(Qt.NoPen)
         tail_cx = ox + CAT_W // 2
         painter.drawPolygon(
-            *[
-                QPoint(tail_cx - 6, by + h - 1),
-                QPoint(tail_cx + 6, by + h - 1),
-                QPoint(tail_cx, by + h + 8),
-            ]
+            QPolygon(
+                [
+                    QPoint(tail_cx - 6, by + h - 1),
+                    QPoint(tail_cx + 6, by + h - 1),
+                    QPoint(tail_cx, by + h + 8),
+                ]
+            )
         )
         painter.setPen(QColor(58, 43, 26))
         painter.drawText(
